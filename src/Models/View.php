@@ -3,7 +3,6 @@
 namespace ConsoleTVs\Links\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Crypt;
 
 class View extends Model
 {
@@ -20,13 +19,13 @@ class View extends Model
 
     public function languageFancy()
     {
-        $countries = json_decode(file_get_contents(__DIR__ . "/../countries.json"), true);
-        foreach($countries as $country) {
+        $countries = json_decode(file_get_contents(__DIR__.'/../countries.json'), true);
+        foreach ($countries as $country) {
             if ($country['code'] == $this->language) {
                 return explode(' ', str_replace(';', '', $country['name']))[0];
             }
         }
+
         return $this->language;
     }
-
 }

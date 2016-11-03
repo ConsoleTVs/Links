@@ -17,10 +17,10 @@ class LinksMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ( ! session('links.password') || (Crypt::decrypt(session('links.password')) != config('links.password')) ) {
+        if (! session('links.password') || (Crypt::decrypt(session('links.password')) != config('links.password'))) {
             return redirect()
                 ->route('links::login')
-                ->with('msg', "Your login has expired or does not exist.");
+                ->with('msg', 'Your login has expired or does not exist.');
         }
 
         return $next($request);

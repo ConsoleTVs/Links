@@ -3,8 +3,6 @@
 namespace ConsoleTVs\Links\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use ConsoleTVs\Links\Models\Link;
 use ConsoleTVs\Links\Models\View;
@@ -20,6 +18,7 @@ class LinksController extends Controller
         if (session('links.password') && Crypt::decrypt(session('links.password')) == config('links.password')) {
             return redirect()->route('links::links');
         }
+
         return view('links::login');
     }
 
@@ -31,15 +30,15 @@ class LinksController extends Controller
         session(['links.password' => Crypt::encrypt($request->input('password'))]);
 
         if (Crypt::decrypt(session('links.password')) != config('links.password')) {
-            return redirect()->route('links::login')->with('msg', "The password is not correct");
+            return redirect()->route('links::login')->with('msg', 'The password is not correct');
         }
 
         return redirect()->route('links::links');
     }
 
     /**
-    * Logout function.
-    */
+     * Logout function.
+     */
     public function logout(Request $request)
     {
         $request->session()->forget('links.password');
@@ -64,7 +63,7 @@ class LinksController extends Controller
     {
         $link = Link::where('slug', $slug)->first();
 
-        if(!$link) {
+        if (! $link) {
             abort(404, 'The link was not found');
         }
 
@@ -80,21 +79,21 @@ class LinksController extends Controller
     {
         $link = Link::where('slug', $slug)->first();
 
-        if(!$link) {
+        if (! $link) {
             abort(404, 'The link was not found');
         }
 
         $views = View::where($specific, $specific_value)->orderBy('id', 'desc')->get();
 
-        if(!$views->toArray()) {
+        if (! $views->toArray()) {
             abort(404, 'No views found');
         }
 
         $raw_specific_value = $specific_value;
 
         // Fancy specific_value if it's a language
-        $countries = json_decode(file_get_contents(__DIR__ . "/../countries.json"), true);
-        foreach($countries as $country) {
+        $countries = json_decode(file_get_contents(__DIR__.'/../countries.json'), true);
+        foreach ($countries as $country) {
             if ($country['code'] == $specific_value) {
                 $specific_value = explode(' ', str_replace(';', '', $country['name']))[0];
                 break;
@@ -117,13 +116,12 @@ class LinksController extends Controller
      */
     public function redirect($slug)
     {
-        if ( ! $link = Link::where('slug', $slug)->first()) {
-            abort(404, "Unable to find this link");
+        if (! $link = Link::where('slug', $slug)->first()) {
+            abort(404, 'Unable to find this link');
         }
 
         $link->addView();
 
         return redirect($link->url);
     }
-
 }
