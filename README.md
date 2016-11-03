@@ -48,7 +48,7 @@ Add the following alias to the array in: ```config/app.php```
 ### Publish the assets
 
 ```
-php artisan vendor:publish --tag=links_config
+php artisan vendor:publish
 ```
 
 # Configuration

@@ -4,6 +4,7 @@ namespace ConsoleTVs\Links;
 
 use Illuminate\Support\ServiceProvider;
 use Unicodeveloper\Identify\IdentifyServiceProvider;
+use ConsoleTVs\Charts\ChartsServiceProvider;
 
 class LinksServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,7 @@ class LinksServiceProvider extends ServiceProvider
         $router->middleware('links.middleware', config('links.middleware'));
 
         $this->app->register(IdentifyServiceProvider::class);
+        $this->app->register(ChartsServiceProvider::class);
 
         $this->loadViewsFrom(__DIR__.'/Views', 'links');
 
