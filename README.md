@@ -51,6 +51,11 @@ Add the following alias to the array in: ```config/app.php```
 php artisan vendor:publish
 ```
 
+### Migrate
+
+```
+php artisan migrate
+```
 # Configuration
 
 ## Default Settings
