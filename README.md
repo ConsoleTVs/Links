@@ -1,9 +1,9 @@
 # Links
 ### Links statistics for laravel 5
 
-[![StyleCI](https://styleci.io/repos/69124179/shield?branch=master)](https://styleci.io/repos/69124179)
+[![StyleCI](https://styleci.io/repos/72780598/shield?branch=master)](https://styleci.io/repos/72780598)
 ![StyleCI](https://img.shields.io/badge/Built_for-Laravel-green.svg?style=flat-square)
-![StyleCI](https://img.shields.io/github/license/consoletvs/charts.svg?style=flat-square)
+![StyleCI](https://img.shields.io/github/license/consoletvs/links.svg?style=flat-square)
 
 
 ![Links Logo](http://i.imgur.com/tWlribC.png)
