@@ -127,6 +127,8 @@ Use the package facade:
 {{ Links::route('google') }}
 ```
 
+## Track Pages
+
 if you want to track down the current page, simply do this:
 
 **Note:** It uses jQuery!
