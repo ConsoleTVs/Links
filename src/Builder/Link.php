@@ -29,10 +29,10 @@ class Link
      */
     public function __construct($url)
     {
-        if ( ! $link = Linker::where('url', $url)->first()) {
+        if (! $link = Linker::where('url', $url)->first()) {
             $link = Linker::create([
                 'url'   => $url,
-                'slug'  => $this->randomString(6)
+                'slug'  => $this->randomString(6),
             ]);
         }
 
@@ -64,13 +64,12 @@ class Link
     {
         $url = $this->link->shortered();
 
-        $code = $jquery ? "<script src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>" : "";
+        $code = $jquery ? "<script src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>" : '';
 
-        $code .= "<script>";
+        $code .= '<script>';
         $code .= "$.get('$url');";
-        $code .= "</script>";
+        $code .= '</script>';
 
         return $code;
     }
-
 }

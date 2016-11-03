@@ -31,7 +31,6 @@ class LinksServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Views', 'links');
 
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
-
     }
 
     /**

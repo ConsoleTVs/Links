@@ -51,6 +51,7 @@ class Builder
     public static function track($jquery = false)
     {
         $link = new Link(Request::url());
+
         return $link->ajax($jquery);
     }
 }

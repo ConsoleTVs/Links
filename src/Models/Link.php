@@ -29,7 +29,8 @@ class Link extends Model
     /**
      * Returns the link views.
      */
-    public function views() {
+    public function views()
+    {
         return $this->hasMany('ConsoleTVs\Links\Models\View');
     }
 
@@ -124,7 +125,7 @@ class Link extends Model
     /**
      * Returns the link OSs (Operating Systems).
      *
-     * @param boolean $fancy
+     * @param bool $fancy
      */
     public function usedLanguages($fancy = false)
     {
@@ -134,12 +135,13 @@ class Link extends Model
 
         if ($fancy) {
             $collection = $collection->groupBy(function ($item, $key) {
-                $countries = json_decode(file_get_contents(__DIR__ . "/../countries.json"), true);
-                foreach($countries as $country) {
+                $countries = json_decode(file_get_contents(__DIR__.'/../countries.json'), true);
+                foreach ($countries as $country) {
                     if ($country['code'] == $key) {
                         return explode(' ', str_replace(';', '', $country['name']))[0];
                     }
                 }
+
                 return $key;
             })->map(function ($item, $key) {
                 return count($item);
@@ -152,7 +154,7 @@ class Link extends Model
     /**
      * Returns the link most used OS (Operating System).
      *
-     * @param boolean $fancy
+     * @param bool $fancy
      */
     public function mostUsedLanguage($fancy = false)
     {
@@ -160,19 +162,18 @@ class Link extends Model
 
         foreach ($languages as $lang => $views) {
             if ($views == $max) {
-                if ($fancy){
-                    $countries = json_decode(file_get_contents(__DIR__ . "/../countries.json"), true);
-                    foreach($countries as $country) {
+                if ($fancy) {
+                    $countries = json_decode(file_get_contents(__DIR__.'/../countries.json'), true);
+                    foreach ($countries as $country) {
                         if ($country['code'] == $lang) {
                             return explode(' ', str_replace(';', '', $country['name']))[0];
                         }
                     }
                 }
+
                 return $lang;
             }
         }
-
-        return null;
     }
 
     /**
@@ -196,17 +197,12 @@ class Link extends Model
      */
     public function getIP()
     {
-        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
-        {
-          $ip=$_SERVER['HTTP_CLIENT_IP'];
-        }
-        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
-        {
-          $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
-        }
-        else
-        {
-          $ip=$_SERVER['REMOTE_ADDR'];
+        if (! empty($_SERVER['HTTP_CLIENT_IP'])) {   //check ip from share internet
+          $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {   //to check ip is pass from proxy
+          $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
         }
 
         return $ip;
