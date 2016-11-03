@@ -1,0 +1,23 @@
+{
+    "name": "consoletvs/links",
+    "description": "Links statistics for laravel 5",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.*",
+        "consoletvs/charts": "2.*",
+        "consoletvs/indentify": "1.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erik Campobadal",
+            "email": "soc@erik.cat"
+        }
+    ],
+	"autoload": {
+        "psr-4": {
+            "ConsoleTVs\\Links\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
