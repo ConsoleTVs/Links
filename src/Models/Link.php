@@ -3,7 +3,7 @@
 namespace ConsoleTVs\Links\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Unicodeveloper\Identify\Facades\IdentifyFacade as Identify;
+use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class Link extends Model
 {
