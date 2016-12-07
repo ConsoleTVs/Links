@@ -11,8 +11,8 @@
 
 namespace ConsoleTVs\Links\Facades;
 
-use Illuminate\Support\Facades\Facade;
 use ConsoleTVs\Links\Builder;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * This is the links facade class.

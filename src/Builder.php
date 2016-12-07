@@ -11,10 +11,10 @@
 
 namespace ConsoleTVs\Links;
 
-use ConsoleTVs\Links\Builder\Link;
-use Illuminate\Support\Facades\Facade;
-use Illuminate\Support\Facades\File;
 use Request;
+use ConsoleTVs\Links\Builder\Link;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * This is the link facade class.
