@@ -2,11 +2,11 @@
 
 namespace ConsoleTVs\Links\Controllers;
 
+use Crypt;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use ConsoleTVs\Links\Models\Link;
 use ConsoleTVs\Links\Models\View;
-use Crypt;
+use App\Http\Controllers\Controller;
 
 class LinksController extends Controller
 {

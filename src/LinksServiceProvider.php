@@ -3,8 +3,8 @@
 namespace ConsoleTVs\Links;
 
 use Illuminate\Support\ServiceProvider;
-use Unicodeveloper\Identify\IdentifyServiceProvider;
 use ConsoleTVs\Charts\ChartsServiceProvider;
+use Unicodeveloper\Identify\IdentifyServiceProvider;
 
 class LinksServiceProvider extends ServiceProvider
 {
