@@ -3,7 +3,7 @@
     "description": "Links statistics for laravel 5",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.*",
+        "laravel/framework": "^5.4",
         "consoletvs/charts": "2.*",
         "consoletvs/identify": "1.*"
     },
