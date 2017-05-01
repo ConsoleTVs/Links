@@ -23,7 +23,7 @@ class LinksServiceProvider extends ServiceProvider
             __DIR__.'/Config/links.php' => config_path('links.php'),
         ], 'links_config');
 
-        $router->middleware('links.middleware', config('links.middleware'));
+        $router->aliasMiddleware('links.middleware', config('links.middleware'));
 
         $this->app->register(IdentifyServiceProvider::class);
         $this->app->register(ChartsServiceProvider::class);
