@@ -15,7 +15,7 @@ class Links extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url');
+            $table->text('url');
             $table->string('slug')->unique();
             $table->timestamps();
         });
